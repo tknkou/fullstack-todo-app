@@ -6,7 +6,7 @@ import (
 	"os"
 	"goTodoApp/infrastructures/model"
 	"github.com/joho/godotenv"
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 
 )
@@ -30,7 +30,7 @@ func InitDB() (*gorm.DB, string) {
 		dbUser, dbPassword, dbHost, dbPort, dbName)
 
 	// DB接続
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
