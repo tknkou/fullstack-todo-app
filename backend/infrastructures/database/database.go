@@ -25,10 +25,14 @@ func InitDB() (*gorm.DB, string) {
 	dbName := os.Getenv("DB_NAME")
 	secretKey := os.Getenv("SECRET_KEY")
 
-	// DSN作成
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		dbUser, dbPassword, dbHost, dbPort, dbName)
+	// 確認用ログ
+    log.Printf("DB_HOST=%s, DB_USER=%s, DB_NAME=%s\n", dbHost, dbUser, dbName)
 
+		
+	dsn := fmt.Sprintf(
+    "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Tokyo",
+    dbHost, dbUser, dbPassword, dbName, dbPort,
+)
 	// DB接続
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
