@@ -1,11 +1,10 @@
 services:
   - type: web
     name: go-backend
-    env: docker                   # ← 重要！Goではなく docker を指定
-    rootDir: backend             # ← backend をルートとして使う
-    dockerfilePath: Dockerfile   # ← backend 内の Dockerfile を指定
-    buildCommand: ""
-    startCommand: ""
+    env: go                            # ← Go環境に変更
+    rootDir: backend                   # Goソースがあるディレクトリ
+    buildCommand: go build -o app ./cmd/main.go
+    startCommand: ./app
     autoDeploy: true
     envVars:
       - key: DB_USER
