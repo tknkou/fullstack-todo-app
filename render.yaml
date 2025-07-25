@@ -8,14 +8,14 @@ services:
     autoDeploy: true
     envVars:
       - key: DB_USER
-        value: root
+        value: go_todo_db_l9et_user
       - key: DB_PASSWORD
-        value: root
+        value: J8t7e5Mu9Czc0duhXhIuv59h6pQjLtgq
       - key: DB_HOST
-        value: db
+        value: dpg-d21gfb95pdvs73ft4250-a
       - key: DB_PORT
-        value: 3306
+        value: "5432"
       - key: DB_NAME
-        value: goTodoAPP
+        value: go_todo_db_l9et
       - key: SECRET_KEY
         value: 852768f975597fb81e172ba53c02eec44df9de2f81959a4d8ecebef1e92b3b8c
