@@ -2,7 +2,7 @@ services:
   - type: web
     name: go-backend
     env: go
-    rootDir: backend              # ← ここを必ず指定！
+    rootDir: backend
     buildCommand: go build -o app ./cmd/main.go
     startCommand: ./app
     autoDeploy: true
