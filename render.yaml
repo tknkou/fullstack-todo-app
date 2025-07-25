@@ -3,6 +3,7 @@ services:
     name: go-backend
     env: go
     rootDir: backend       # Goのソースコードがあるディレクトリ
+    dockerfilePath: Dockerfile
     buildCommand: go build -o app ./cmd/main.go
     startCommand: ./app
     autoDeploy: true       # Gitプッシュ時に自動デプロイ
