@@ -12,9 +12,9 @@ import (
 )
 //DB接続を開始する関数
 func InitDB() (*gorm.DB, string) {
-	// .env の読み込み（必要ならここで）
+	// .env の読み込み（本番環境ではなくてもOKなように）
 	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
+		log.Println("Warning: .env file not found, continuing with environment variables")
 	}
 
 	// 環境変数の取得
